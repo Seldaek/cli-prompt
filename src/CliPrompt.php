@@ -13,6 +13,11 @@ namespace Seld\CliPrompt;
 
 class CliPrompt
 {
+    /**
+     * Prompts the user for input and shows what they type
+     *
+     * @return string
+     */
     public static function prompt()
     {
         $stdin = fopen('php://stdin', 'r');
@@ -22,6 +27,15 @@ class CliPrompt
         return $answer;
     }
 
+    /**
+     * Prompts the user for input and hides what they type
+     *
+     * @param  string $allowFallback If prompting fails for any reason and this is set to true the prompt
+     *                               will be done using the regular prompt() function, otherwise a
+     *                               \RuntimeException is thrown.
+     * @return string
+     * @throws RuntimeException on failure to prompt, unless $allowFallback is true
+     */
     public static function hiddenPrompt($allowFallback = false)
     {
         // handle windows
