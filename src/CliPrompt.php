@@ -30,7 +30,7 @@ class CliPrompt
     /**
      * Prompts the user for input and hides what they type
      *
-     * @param  string $allowFallback If prompting fails for any reason and this is set to true the prompt
+     * @param  bool   $allowFallback If prompting fails for any reason and this is set to true the prompt
      *                               will be done using the regular prompt() function, otherwise a
      *                               \RuntimeException is thrown.
      * @return string
