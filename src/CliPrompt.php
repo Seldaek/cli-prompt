@@ -75,7 +75,7 @@ class CliPrompt
         if (file_exists('/usr/bin/env')) {
             // handle other OSs with bash/zsh/ksh/csh if available to hide the answer
             $test = "/usr/bin/env %s -c 'echo OK' 2> /dev/null";
-            foreach (array('bash', 'zsh', 'ksh', 'csh') as $sh) {
+            foreach (array('bash', 'zsh', 'ksh', 'csh', 'sh') as $sh) {
                 if ('OK' === rtrim(shell_exec(sprintf($test, $sh)))) {
                     $shell = $sh;
                     break;
