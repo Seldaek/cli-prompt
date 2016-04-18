@@ -91,7 +91,7 @@ class CliPrompt
                 echo PHP_EOL;
 
                 return $value;
-            } els
+            }
         }
 
         // not able to hide the answer
