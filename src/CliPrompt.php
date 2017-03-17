@@ -59,17 +59,20 @@ class CliPrompt
                 $exe = $tmpExe;
             }
 
-            $answer = self::trimAnswer(shell_exec($exe));
+            $scriptOutput = shell_exec($exe);
+            $answer = self::trimAnswer($scriptOutput);
 
             // clean up
             if (isset($tmpExe)) {
                 unlink($tmpExe);
             }
 
-            // output a newline to be on par with the regular prompt()
-            echo PHP_EOL;
-
-            return $answer;
+            if (!is_null($scriptOutput))
+            {
+            	// output a newline to be on par with the regular prompt()
+                echo PHP_EOL;
+                return $answer;
+            }
         }
 
         if (file_exists('/usr/bin/env')) {
