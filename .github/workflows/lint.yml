@@ -14,7 +14,7 @@ jobs:
       matrix:
         php-version:
           - "5.3"
-          - "7.4"
+          - "8.0"
 
     steps:
       - name: "Checkout"
@@ -24,8 +24,6 @@ jobs:
         uses: "shivammathur/setup-php@v2"
         with:
           coverage: "none"
-          extensions: "intl"
-          ini-values: "memory_limit=-1"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Lint PHP files"
